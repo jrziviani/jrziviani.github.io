@@ -1,0 +1,99 @@
+baseURL = 'https://ziviani.net/'
+languageCode = 'en-us'
+title = 'ziviani.net'
+theme = 'PaperMod'
+enableRobotsTXT = true
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[params]
+  author = "Jose R. Ziviani"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = false
+  tocopen = false
+  enableEmoji = true
+
+  [params.homeInfoParams]
+    title = "ziviani.net"
+    content = """Personal blog.
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/jrziviani"
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/jrziviani"
+
+  [[params.socialIcons]]
+    name = "RSS"
+    url = "index.xml"
+
+[languages.en]
+  languageName = "English"
+  weight = 1
+
+[[languages.en.menu.main]]
+  name = "Archive"
+  url = "/archives"
+  weight = 5
+
+[[languages.en.menu.main]]
+  name = "Tags"
+  url = "/tags"
+  weight = 10
+
+[[languages.en.menu.main]]
+  name = "Search"
+  url = "/search"
+  weight = 10
+
+[[languages.en.menu.main]]
+  name = "About"
+  url = "/about"
+  weight = 20
+
+[languages.pt]
+  languageName = ":pt:"
+  languageAltTitle = "Portuguese"
+  weight = 2
+
+[[languages.pt.menu.main]]
+  name = "Arquivo"
+  url = "/archives"
+  weight = 5
+
+[[languages.pt.menu.main]]
+  name = "Tags"
+  url = "/tags"
+  weight = 10
+
+[[languages.pt.menu.main]]
+  name = "Busca"
+  url = "/search"
+  weight = 10
+
+[[languages.pt.menu.main]]
+  name = "Sobre"
+  url = "/sobre"
+  weight = 20
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    noClasses = true
+    style = 'solarized-dark'

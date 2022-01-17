@@ -1,0 +1,58 @@
+<canvas id="canvas" width="1024px" height="800px"></canvas>
+
+<script type="text/javascript" charset="utf-8" src="/js/vm.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/vm_iface.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var vm = undefined;
+    window.addEventListener('keydown', (event) => {
+        if (typeof vm != 'undefined' && event.key == 'n' ||
+            event.key == 'N') {
+            vm.run_step();
+            window.requestAnimationFrame(
+                function() {
+                    vm.draw();
+                }
+            );
+        }
+    }, false);
+
+    function main()
+    {
+        var canvas = document.getElementById('canvas');
+        vm = new vm_gui(canvas);
+        window.requestAnimationFrame(
+            function() {
+                vm.draw();
+            }
+        );
+    }
+
+    window.onload = function(event) {
+        main();
+    }
+
+    var dx = null;
+    document.addEventListener('touchstart', (event) => {
+        if (event.target.id != "canvas") {
+            return;
+        }
+
+        dx = event.touches[0].clientX;
+    }, false);
+
+    document.addEventListener('touchmove', (event) => {
+        if (dx === null) {
+            return;
+        }
+
+        if (event.touches[0].clientX - dx > 0) {
+            vm.run_step();
+        }
+        dx = null;
+        window.requestAnimationFrame(
+            function() {
+                vm.draw();
+            }
+        );
+    }, false);
+</script>
