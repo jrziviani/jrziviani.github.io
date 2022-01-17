@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C on ziviani.net</title>
+    <link>https://jrziviani.github.io/tags/c/</link>
+    <description>Recent content in C on ziviani.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Nov 2017 09:04:30 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functions in Assembly - Part II</title>
+      <link>https://jrziviani.github.io/posts/functions-in-assembly-ii/</link>
+      <pubDate>Sat, 18 Nov 2017 09:04:30 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/functions-in-assembly-ii/</guid>
+      <description>What is a function from assembly&amp;rsquo;s point of view and how to write it. Part II.</description>
+    </item>
+    
+    <item>
+      <title>Functions in Assembly - Part I</title>
+      <link>https://jrziviani.github.io/posts/functions-in-assembly/</link>
+      <pubDate>Wed, 25 Oct 2017 09:04:06 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/functions-in-assembly/</guid>
+      <description>What is a function from assembly&amp;rsquo;s point of view and how to write it. Part I.</description>
+    </item>
+    
+    <item>
+      <title>Using the KVM API - PowerPC 64 version</title>
+      <link>https://jrziviani.github.io/posts/kvm-hello-world-ppc64/</link>
+      <pubDate>Tue, 05 Sep 2017 06:19:26 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/kvm-hello-world-ppc64/</guid>
+      <description>Interacting with PPC64 KVM module in C.</description>
+    </item>
+    
+    <item>
+      <title>Binary Index Tree</title>
+      <link>https://jrziviani.github.io/posts/binary-index-tree/</link>
+      <pubDate>Wed, 10 Aug 2016 06:18:59 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/binary-index-tree/</guid>
+      <description>Understanding the binary index tree (BIT) data structure.</description>
+    </item>
+    
+    <item>
+      <title>Class Inheritance in C</title>
+      <link>https://jrziviani.github.io/posts/class-inheritance-in-c/</link>
+      <pubDate>Wed, 24 Dec 2014 06:18:30 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/class-inheritance-in-c/</guid>
+      <description>Implementing class inheritance in C language - or how Python implements class inheritance support in C.</description>
+    </item>
+    
+    <item>
+      <title>How to Create an Apache Module</title>
+      <link>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</link>
+      <pubDate>Mon, 10 Jan 2011 13:41:20 -0800</pubDate>
+      
+      <guid>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</guid>
+      <description>A simple how-to guiding through the process of creating an Apache HTTPd module in C language.</description>
+    </item>
+    
+  </channel>
+</rss>
