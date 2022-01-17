@@ -2,70 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ziviani.net/pt/tags/pessoal/</loc>
+    <loc>https://jrziviani.github.io/pt/tags/pessoal/</loc>
     <lastmod>2011-01-01T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/pt/about/</loc>
-    <lastmod>2011-01-01T13:41:20-08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ziviani.net/about/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://ziviani.net/pt/about/"
-                />
-  </url><url>
-    <loc>https://ziviani.net/pt/tags/</loc>
+    <loc>https://jrziviani.github.io/pt/about/</loc>
     <lastmod>2011-01-01T13:41:20-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/tags/"
+                href="https://jrziviani.github.io/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/tags/"
+                href="https://jrziviani.github.io/pt/about/"
                 />
   </url><url>
-    <loc>https://ziviani.net/pt/</loc>
+    <loc>https://jrziviani.github.io/pt/tags/</loc>
     <lastmod>2011-01-01T13:41:20-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/"
+                href="https://jrziviani.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/"
+                href="https://jrziviani.github.io/pt/tags/"
                 />
   </url><url>
-    <loc>https://ziviani.net/pt/search/</loc>
+    <loc>https://jrziviani.github.io/pt/</loc>
+    <lastmod>2011-01-01T13:41:20-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/search/"
+                href="https://jrziviani.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/search/"
+                href="https://jrziviani.github.io/pt/"
                 />
   </url><url>
-    <loc>https://ziviani.net/pt/categories/</loc>
+    <loc>https://jrziviani.github.io/pt/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/categories/"
+                href="https://jrziviani.github.io/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/categories/"
+                href="https://jrziviani.github.io/pt/search/"
+                />
+  </url><url>
+    <loc>https://jrziviani.github.io/pt/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jrziviani.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jrziviani.github.io/pt/categories/"
                 />
   </url>
 </urlset>

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on ziviani.net</title>
-    <link>https://ziviani.net/pt/tags/</link>
+    <link>https://jrziviani.github.io/pt/tags/</link>
     <description>Recent content in Tags on ziviani.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jan 2011 13:41:20 -0800</lastBuildDate><atom:link href="https://ziviani.net/pt/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2011 13:41:20 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/pt/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>pessoal</title>
-      <link>https://ziviani.net/pt/tags/pessoal/</link>
+      <link>https://jrziviani.github.io/pt/tags/pessoal/</link>
       <pubDate>Sat, 01 Jan 2011 13:41:20 -0800</pubDate>
       
-      <guid>https://ziviani.net/pt/tags/pessoal/</guid>
+      <guid>https://jrziviani.github.io/pt/tags/pessoal/</guid>
       <description></description>
     </item>
     

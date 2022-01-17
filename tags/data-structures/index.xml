@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Data Structures on ziviani.net</title>
-    <link>https://ziviani.net/tags/data-structures/</link>
+    <link>https://jrziviani.github.io/tags/data-structures/</link>
     <description>Recent content in Data Structures on ziviani.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Aug 2016 06:18:59 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2016 06:18:59 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Binary Index Tree</title>
-      <link>https://ziviani.net/posts/binary-index-tree/</link>
+      <link>https://jrziviani.github.io/posts/binary-index-tree/</link>
       <pubDate>Wed, 10 Aug 2016 06:18:59 -0800</pubDate>
       
-      <guid>https://ziviani.net/posts/binary-index-tree/</guid>
+      <guid>https://jrziviani.github.io/posts/binary-index-tree/</guid>
       <description>Understanding the binary index tree (BIT) data structure.</description>
     </item>
     

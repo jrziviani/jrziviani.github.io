@@ -2,174 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ziviani.net/posts/amps-template-engine/</loc>
+    <loc>https://jrziviani.github.io/posts/amps-template-engine/</loc>
     <lastmod>2019-01-08T17:20:19-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/c&#43;&#43;/</loc>
+    <loc>https://jrziviani.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2019-01-08T17:20:19-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/</loc>
+    <loc>https://jrziviani.github.io/posts/</loc>
     <lastmod>2019-01-08T17:20:19-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/</loc>
-    <lastmod>2019-01-08T17:20:19-08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://ziviani.net/pt/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ziviani.net/tags/"
-                />
-  </url><url>
-    <loc>https://ziviani.net/</loc>
+    <loc>https://jrziviani.github.io/tags/</loc>
     <lastmod>2019-01-08T17:20:19-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/"
+                href="https://jrziviani.github.io/pt/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/"
+                href="https://jrziviani.github.io/tags/"
                 />
   </url><url>
-    <loc>https://ziviani.net/tags/hacking/</loc>
+    <loc>https://jrziviani.github.io/</loc>
+    <lastmod>2019-01-08T17:20:19-08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://jrziviani.github.io/pt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://jrziviani.github.io/"
+                />
+  </url><url>
+    <loc>https://jrziviani.github.io/tags/hacking/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/linux/</loc>
+    <loc>https://jrziviani.github.io/tags/linux/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/linux-crash-tool-part-i/</loc>
+    <loc>https://jrziviani.github.io/posts/linux-crash-tool-part-i/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/tooling/</loc>
+    <loc>https://jrziviani.github.io/tags/tooling/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/touching-around/</loc>
+    <loc>https://jrziviani.github.io/posts/touching-around/</loc>
     <lastmod>2018-08-20T17:19:41-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/spying-around/</loc>
+    <loc>https://jrziviani.github.io/posts/spying-around/</loc>
     <lastmod>2018-08-12T17:19:27-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/bookmark/</loc>
+    <loc>https://jrziviani.github.io/tags/bookmark/</loc>
     <lastmod>2017-12-20T17:19:07-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/conference/</loc>
+    <loc>https://jrziviani.github.io/tags/conference/</loc>
     <lastmod>2017-12-20T17:19:07-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/cppcon-mustsee/</loc>
+    <loc>https://jrziviani.github.io/posts/cppcon-mustsee/</loc>
     <lastmod>2017-12-20T17:19:07-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/design-patterns/</loc>
+    <loc>https://jrziviani.github.io/tags/design-patterns/</loc>
     <lastmod>2017-12-03T17:09:28-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/elegant-visitors/</loc>
+    <loc>https://jrziviani.github.io/posts/elegant-visitors/</loc>
     <lastmod>2017-12-03T17:09:28-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/oo/</loc>
+    <loc>https://jrziviani.github.io/tags/oo/</loc>
     <lastmod>2017-12-03T17:09:28-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/assembly/</loc>
+    <loc>https://jrziviani.github.io/tags/assembly/</loc>
     <lastmod>2017-11-18T09:04:30-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/c/</loc>
+    <loc>https://jrziviani.github.io/tags/c/</loc>
     <lastmod>2017-11-18T09:04:30-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/functions-in-assembly-ii/</loc>
+    <loc>https://jrziviani.github.io/posts/functions-in-assembly-ii/</loc>
     <lastmod>2017-11-18T09:04:30-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/fpga/</loc>
+    <loc>https://jrziviani.github.io/tags/fpga/</loc>
     <lastmod>2017-11-01T09:04:55-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/my-first-fpga-board/</loc>
+    <loc>https://jrziviani.github.io/posts/my-first-fpga-board/</loc>
     <lastmod>2017-11-01T09:04:55-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/functions-in-assembly/</loc>
+    <loc>https://jrziviani.github.io/posts/functions-in-assembly/</loc>
     <lastmod>2017-10-25T09:04:06-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/kvm/</loc>
+    <loc>https://jrziviani.github.io/tags/kvm/</loc>
     <lastmod>2017-09-05T06:19:26-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/ppc/</loc>
+    <loc>https://jrziviani.github.io/tags/ppc/</loc>
     <lastmod>2017-09-05T06:19:26-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/kvm-hello-world-ppc64/</loc>
+    <loc>https://jrziviani.github.io/posts/kvm-hello-world-ppc64/</loc>
     <lastmod>2017-09-05T06:19:26-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/blog/</loc>
+    <loc>https://jrziviani.github.io/tags/blog/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/reboot/</loc>
+    <loc>https://jrziviani.github.io/posts/reboot/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/web-dev/</loc>
+    <loc>https://jrziviani.github.io/tags/web-dev/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/binary-index-tree/</loc>
+    <loc>https://jrziviani.github.io/posts/binary-index-tree/</loc>
     <lastmod>2016-08-10T06:18:59-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/data-structures/</loc>
+    <loc>https://jrziviani.github.io/tags/data-structures/</loc>
     <lastmod>2016-08-10T06:18:59-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/class-inheritance-in-c/</loc>
+    <loc>https://jrziviani.github.io/posts/class-inheritance-in-c/</loc>
     <lastmod>2014-12-24T06:18:30-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/python/</loc>
+    <loc>https://jrziviani.github.io/tags/python/</loc>
     <lastmod>2014-12-24T06:18:30-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/apache/</loc>
+    <loc>https://jrziviani.github.io/tags/apache/</loc>
     <lastmod>2011-01-10T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/posts/how-to-create-an-apache-module/</loc>
+    <loc>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</loc>
     <lastmod>2011-01-10T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/tags/web/</loc>
+    <loc>https://jrziviani.github.io/tags/web/</loc>
     <lastmod>2011-01-10T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/about/</loc>
+    <loc>https://jrziviani.github.io/about/</loc>
     <lastmod>2011-01-01T13:41:20-08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/about/"
+                href="https://jrziviani.github.io/pt/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/about/"
+                href="https://jrziviani.github.io/about/"
                 />
   </url><url>
-    <loc>https://ziviani.net/tags/personal/</loc>
+    <loc>https://jrziviani.github.io/tags/personal/</loc>
     <lastmod>2011-01-01T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://ziviani.net/archives/</loc>
+    <loc>https://jrziviani.github.io/archives/</loc>
   </url><url>
-    <loc>https://ziviani.net/categories/</loc>
+    <loc>https://jrziviani.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/categories/"
+                href="https://jrziviani.github.io/pt/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/categories/"
+                href="https://jrziviani.github.io/categories/"
                 />
   </url><url>
-    <loc>https://ziviani.net/search/</loc>
+    <loc>https://jrziviani.github.io/search/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="pt"
-                href="https://ziviani.net/pt/search/"
+                href="https://jrziviani.github.io/pt/search/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ziviani.net/search/"
+                href="https://jrziviani.github.io/search/"
                 />
   </url>
 </urlset>

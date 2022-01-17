@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Python on ziviani.net</title>
-    <link>https://ziviani.net/tags/python/</link>
+    <link>https://jrziviani.github.io/tags/python/</link>
     <description>Recent content in Python on ziviani.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Dec 2014 06:18:30 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Dec 2014 06:18:30 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Class Inheritance in C</title>
-      <link>https://ziviani.net/posts/class-inheritance-in-c/</link>
+      <link>https://jrziviani.github.io/posts/class-inheritance-in-c/</link>
       <pubDate>Wed, 24 Dec 2014 06:18:30 -0800</pubDate>
       
-      <guid>https://ziviani.net/posts/class-inheritance-in-c/</guid>
+      <guid>https://jrziviani.github.io/posts/class-inheritance-in-c/</guid>
       <description>Implementing class inheritance in C language - or how Python implements class inheritance support in C.</description>
     </item>
     

@@ -7,66 +7,66 @@
 <meta name=keywords content="C,assembly,kvm,ppc">
 <meta name=description content="Interacting with PPC64 KVM module in C.">
 <meta name=author content="Jose R. Ziviani">
-<link rel=canonical href=https://ziviani.net/posts/kvm-hello-world-ppc64/>
+<link rel=canonical href=https://jrziviani.github.io/posts/kvm-hello-world-ppc64/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://ziviani.net/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://ziviani.net/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://ziviani.net/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://ziviani.net/apple-touch-icon.png>
-<link rel=mask-icon href=https://ziviani.net/safari-pinned-tab.svg>
+<link rel=icon href=https://jrziviani.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://jrziviani.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://jrziviani.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://jrziviani.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://jrziviani.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
-<link rel=alternate hreflang=en href=https://ziviani.net/posts/kvm-hello-world-ppc64/>
+<link rel=alternate hreflang=en href=https://jrziviani.github.io/posts/kvm-hello-world-ppc64/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="Using the KVM API - PowerPC 64 version">
 <meta property="og:description" content="Interacting with PPC64 KVM module in C.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://ziviani.net/posts/kvm-hello-world-ppc64/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://jrziviani.github.io/posts/kvm-hello-world-ppc64/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2017-09-05T06:19:26-08:00">
 <meta property="article:modified_time" content="2017-09-05T06:19:26-08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Using the KVM API - PowerPC 64 version">
 <meta name=twitter:description content="Interacting with PPC64 KVM module in C.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://ziviani.net/posts/"},{"@type":"ListItem","position":2,"name":"Using the KVM API - PowerPC 64 version","item":"https://ziviani.net/posts/kvm-hello-world-ppc64/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Using the KVM API - PowerPC 64 version","name":"Using the KVM API - PowerPC 64 version","description":"Interacting with PPC64 KVM module in C.","keywords":["C","assembly","kvm","ppc"],"articleBody":"Based on a very nice article from LWN.net named Using the KVM API, this is basically the same but for PowerPC 64bit.\nGuest code The code below is intended to run bare-metal, neither the operating system nor SLOF to support us, so let’s do it simple. Also, the referred article embedded opcode in his C program, but I’m going to run a separate binary in assembly.\n$ cat code.s  li 16,8 # stores number 8 in register R16  li 17,4 # stores number 4 in register R17  mullw 18,16,17 # stores the result of R16 * R17 in R18 Now, the .ld directives and the binary code.\n$ cat code.ld OUTPUT_FORMAT(elf64-powerpc) SECTIONS { . = 0x100; .text : { *(.text) } }  $ as -mbig -mpower8 code.s -o code.o # power8 big-endian $ ld -T code.ld code.o -o code.bin $ objdump -d code.bin code.bin: file format elf64-powerpc  Disassembly of section .text: 0000000000000100 : 100:\t3a 00 00 08 li r16,8 104:\t3a 20 00 04 li r17,4 108:\t7e 50 89 d6 mullw r18,r16,r17 After a System Reset interrupt, PowerPC resumes execution at address 0x100, this is the reason why the program is linked at such address.\nUsing the KVM API Details about KVM API is well covered by Using the KVM API, I’ll focus on PowerPC64 only. Let’s initializes the registers by zero’ing them, except for:\n$ cat vm.c  /* [snip] */ int setup_registers(struct virtual_machine *vm) { if (ioctl(vm-vcpufd, KVM_GET_SREGS, \u0026vm-sregs) == -1) { return 10; } vm-sregs.pvr = 0x004d0200; vm-sregs.u.s.sdr1 = 0x3fff80400004; if (ioctl(vm-vcpufd, KVM_SET_SREGS, \u0026vm-sregs) == -1) { return 11; } struct kvm_regs regs = { .pc = 0x100, .msr = 0x8000000000000000ULL, }; if (ioctl(vm-vcpufd, KVM_SET_REGS, \u0026regs) == -1) { return 12; } return 0; } /* [snip] */ The full source code can be found at my github repo.\n PVR - Processor Version Register: the value 0x4d0200 includes the version/revision for the Power8 system used to develop this code. SDR1 - Storage Description Register 1: defines the high-order bit for physical base address plus the page table size. The value here is the same that QEMU uses but it won’t make any difference now since we’re in real mode. NOTE: this register doesn’t exist in newer PPC versions, page table locations are now stored in process table entries. MSR - Machine State Register: the value has the first bit set to 1. In other words, it indicates that the system is running in 64-bit mode. PC - Program Counter: Actually it’s not a PowerPC register. In Power, the next instruction address is basically a call to instruction bcl (branch condition and link) that will put the effective address following the branch address into the LR (Link Register). Here, it’s set to address 0x100 because Power will resume the execution at it (recall that we linked our assembly code to the same address).  If you compile and run the code, you’ll get the expected result:\n$ gcc -O3 vm.c -o vm $ ./vm KVM version 12 VM created successfuly Registers set successfuly R 0: 0\tR 1: 0\tR 2: 0\tR 3: 0\tR 4: 0\tR 5: 0\tR 6: 0\tR 7: 0\tR 8: 0\tR 9: 0\tR10: 0\tR11: 0\tR12: 0\tR13: 0\tR14: 0\tR15: 0\tR16: 0\tR17: 0\tR18: 0\tR19: 0  Little Endian Power is a bi-endian architecture, it’s possible to run the same in little-endian mode and it doesn’t require huge modifications, here we go:\n$ cat code.ld OUTPUT_FORMAT(elf64-powerpcle) SECTIONS { . = 0x100; .text : { *(.text) } } $ as -mlittle -mpower8 code.s -o code.o # power8 little-endian $ ld -T code.ld code.o -o code.bin  Good, the binary code is in little-endian mode, let’s change the vm.c:\n$ cat vm.c  int setup_registers(struct virtual_machine *vm) /* [snip] */ struct kvm_regs regs = { .pc = 0x100, .msr = 0x8000000000000001ULL, }; /* [snip] */ That 1 bit in MSR now tells Power to run in little-endian mode. Recompile it again and it’s done.\nReferences  My sample source code Using the KVM API 64-Bit ELF V2 ABI Specification: Power Architecture IBM Power ISA™ Version 3.0B Linux on Power Architecture Platform Reference  ","wordCount":"800","inLanguage":"en","datePublished":"2017-09-05T06:19:26-08:00","dateModified":"2017-09-05T06:19:26-08:00","author":{"@type":"Person","name":"Jose R. Ziviani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ziviani.net/posts/kvm-hello-world-ppc64/"},"publisher":{"@type":"Organization","name":"ziviani.net","logo":{"@type":"ImageObject","url":"https://ziviani.net/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jrziviani.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Using the KVM API - PowerPC 64 version","item":"https://jrziviani.github.io/posts/kvm-hello-world-ppc64/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Using the KVM API - PowerPC 64 version","name":"Using the KVM API - PowerPC 64 version","description":"Interacting with PPC64 KVM module in C.","keywords":["C","assembly","kvm","ppc"],"articleBody":"Based on a very nice article from LWN.net named Using the KVM API, this is basically the same but for PowerPC 64bit.\nGuest code The code below is intended to run bare-metal, neither the operating system nor SLOF to support us, so let’s do it simple. Also, the referred article embedded opcode in his C program, but I’m going to run a separate binary in assembly.\n$ cat code.s  li 16,8 # stores number 8 in register R16  li 17,4 # stores number 4 in register R17  mullw 18,16,17 # stores the result of R16 * R17 in R18 Now, the .ld directives and the binary code.\n$ cat code.ld OUTPUT_FORMAT(elf64-powerpc) SECTIONS { . = 0x100; .text : { *(.text) } }  $ as -mbig -mpower8 code.s -o code.o # power8 big-endian $ ld -T code.ld code.o -o code.bin $ objdump -d code.bin code.bin: file format elf64-powerpc  Disassembly of section .text: 0000000000000100 : 100:\t3a 00 00 08 li r16,8 104:\t3a 20 00 04 li r17,4 108:\t7e 50 89 d6 mullw r18,r16,r17 After a System Reset interrupt, PowerPC resumes execution at address 0x100, this is the reason why the program is linked at such address.\nUsing the KVM API Details about KVM API is well covered by Using the KVM API, I’ll focus on PowerPC64 only. Let’s initializes the registers by zero’ing them, except for:\n$ cat vm.c  /* [snip] */ int setup_registers(struct virtual_machine *vm) { if (ioctl(vm-vcpufd, KVM_GET_SREGS, \u0026vm-sregs) == -1) { return 10; } vm-sregs.pvr = 0x004d0200; vm-sregs.u.s.sdr1 = 0x3fff80400004; if (ioctl(vm-vcpufd, KVM_SET_SREGS, \u0026vm-sregs) == -1) { return 11; } struct kvm_regs regs = { .pc = 0x100, .msr = 0x8000000000000000ULL, }; if (ioctl(vm-vcpufd, KVM_SET_REGS, \u0026regs) == -1) { return 12; } return 0; } /* [snip] */ The full source code can be found at my github repo.\n PVR - Processor Version Register: the value 0x4d0200 includes the version/revision for the Power8 system used to develop this code. SDR1 - Storage Description Register 1: defines the high-order bit for physical base address plus the page table size. The value here is the same that QEMU uses but it won’t make any difference now since we’re in real mode. NOTE: this register doesn’t exist in newer PPC versions, page table locations are now stored in process table entries. MSR - Machine State Register: the value has the first bit set to 1. In other words, it indicates that the system is running in 64-bit mode. PC - Program Counter: Actually it’s not a PowerPC register. In Power, the next instruction address is basically a call to instruction bcl (branch condition and link) that will put the effective address following the branch address into the LR (Link Register). Here, it’s set to address 0x100 because Power will resume the execution at it (recall that we linked our assembly code to the same address).  If you compile and run the code, you’ll get the expected result:\n$ gcc -O3 vm.c -o vm $ ./vm KVM version 12 VM created successfuly Registers set successfuly R 0: 0\tR 1: 0\tR 2: 0\tR 3: 0\tR 4: 0\tR 5: 0\tR 6: 0\tR 7: 0\tR 8: 0\tR 9: 0\tR10: 0\tR11: 0\tR12: 0\tR13: 0\tR14: 0\tR15: 0\tR16: 0\tR17: 0\tR18: 0\tR19: 0  Little Endian Power is a bi-endian architecture, it’s possible to run the same in little-endian mode and it doesn’t require huge modifications, here we go:\n$ cat code.ld OUTPUT_FORMAT(elf64-powerpcle) SECTIONS { . = 0x100; .text : { *(.text) } } $ as -mlittle -mpower8 code.s -o code.o # power8 little-endian $ ld -T code.ld code.o -o code.bin  Good, the binary code is in little-endian mode, let’s change the vm.c:\n$ cat vm.c  int setup_registers(struct virtual_machine *vm) /* [snip] */ struct kvm_regs regs = { .pc = 0x100, .msr = 0x8000000000000001ULL, }; /* [snip] */ That 1 bit in MSR now tells Power to run in little-endian mode. Recompile it again and it’s done.\nReferences  My sample source code Using the KVM API 64-Bit ELF V2 ABI Specification: Power Architecture IBM Power ISA™ Version 3.0B Linux on Power Architecture Platform Reference  ","wordCount":"800","inLanguage":"en","datePublished":"2017-09-05T06:19:26-08:00","dateModified":"2017-09-05T06:19:26-08:00","author":{"@type":"Person","name":"Jose R. Ziviani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jrziviani.github.io/posts/kvm-hello-world-ppc64/"},"publisher":{"@type":"Organization","name":"ziviani.net","logo":{"@type":"ImageObject","url":"https://jrziviani.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://ziviani.net/ accesskey=h title="ziviani.net (Alt + H)">ziviani.net</a>
+<a href=https://jrziviani.github.io accesskey=h title="ziviani.net (Alt + H)">ziviani.net</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 <ul class=lang-switch><li>|</li>
 <li>
-<a href=https://ziviani.net/pt/ title=Portuguese aria-label=:pt:>Pt</a>
+<a href=https://jrziviani.github.io/pt/ title=Portuguese aria-label=:pt:>Pt</a>
 </li>
 </ul>
 </span>
 </div>
 <ul id=menu>
 <li>
-<a href=https://ziviani.net/archives title=Archive>
+<a href=https://jrziviani.github.io/archives title=Archive>
 <span>Archive</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/search title="Search (Alt + /)" accesskey=/>
+<a href=https://jrziviani.github.io/search title="Search (Alt + /)" accesskey=/>
 <span>Search</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/tags title=Tags>
+<a href=https://jrziviani.github.io/tags title=Tags>
 <span>Tags</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/about title=About>
+<a href=https://jrziviani.github.io/about title=About>
 <span>About</span>
 </a>
 </li>
@@ -76,7 +76,7 @@
 <main class=main>
 <article class=post-single>
 <header class=post-header>
-<div class=breadcrumbs><a href=https://ziviani.net/>Home</a>&nbsp;»&nbsp;<a href=https://ziviani.net/posts/>Posts</a></div>
+<div class=breadcrumbs><a href=https://jrziviani.github.io>Home</a>&nbsp;»&nbsp;<a href=https://jrziviani.github.io/posts/>Posts</a></div>
 <h1 class=post-title>
 Using the KVM API - PowerPC 64 version
 </h1>
@@ -227,18 +227,18 @@ Using the KVM API - PowerPC 64 version
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://ziviani.net/tags/c/>C</a></li>
-<li><a href=https://ziviani.net/tags/assembly/>assembly</a></li>
-<li><a href=https://ziviani.net/tags/kvm/>kvm</a></li>
-<li><a href=https://ziviani.net/tags/ppc/>ppc</a></li>
+<li><a href=https://jrziviani.github.io/tags/c/>C</a></li>
+<li><a href=https://jrziviani.github.io/tags/assembly/>assembly</a></li>
+<li><a href=https://jrziviani.github.io/tags/kvm/>kvm</a></li>
+<li><a href=https://jrziviani.github.io/tags/ppc/>ppc</a></li>
 </ul>
 <nav class=paginav>
-<a class=prev href=https://ziviani.net/posts/functions-in-assembly/>
+<a class=prev href=https://jrziviani.github.io/posts/functions-in-assembly/>
 <span class=title>« Prev Page</span>
 <br>
 <span>Functions in Assembly - Part I</span>
 </a>
-<a class=next href=https://ziviani.net/posts/reboot/>
+<a class=next href=https://jrziviani.github.io/posts/reboot/>
 <span class=title>Next Page »</span>
 <br>
 <span>Reboot</span>
@@ -248,7 +248,7 @@ Using the KVM API - PowerPC 64 version
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://ziviani.net/>ziviani.net</a></span>
+<span>&copy; 2022 <a href=https://jrziviani.github.io>ziviani.net</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

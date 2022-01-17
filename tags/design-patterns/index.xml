@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>design patterns on ziviani.net</title>
-    <link>https://ziviani.net/tags/design-patterns/</link>
+    <link>https://jrziviani.github.io/tags/design-patterns/</link>
     <description>Recent content in design patterns on ziviani.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2017 17:09:28 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2017 17:09:28 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elegant Visitors</title>
-      <link>https://ziviani.net/posts/elegant-visitors/</link>
+      <link>https://jrziviani.github.io/posts/elegant-visitors/</link>
       <pubDate>Sun, 03 Dec 2017 17:09:28 -0800</pubDate>
       
-      <guid>https://ziviani.net/posts/elegant-visitors/</guid>
+      <guid>https://jrziviani.github.io/posts/elegant-visitors/</guid>
       <description>Exploring the powerful visitor design pattern.</description>
     </item>
     

@@ -7,66 +7,66 @@
 <meta name=keywords content="C++">
 <meta name=description content="Amps template engine for C++17.">
 <meta name=author content="Jose R. Ziviani">
-<link rel=canonical href=https://ziviani.net/posts/amps-template-engine/>
+<link rel=canonical href=https://jrziviani.github.io/posts/amps-template-engine/>
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css integrity="sha256-yIlj/i15RiAA/Q+xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as=style>
-<link rel=icon href=https://ziviani.net/favicon.ico>
-<link rel=icon type=image/png sizes=16x16 href=https://ziviani.net/favicon-16x16.png>
-<link rel=icon type=image/png sizes=32x32 href=https://ziviani.net/favicon-32x32.png>
-<link rel=apple-touch-icon href=https://ziviani.net/apple-touch-icon.png>
-<link rel=mask-icon href=https://ziviani.net/safari-pinned-tab.svg>
+<link rel=icon href=https://jrziviani.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://jrziviani.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://jrziviani.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://jrziviani.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://jrziviani.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
-<link rel=alternate hreflang=en href=https://ziviani.net/posts/amps-template-engine/>
+<link rel=alternate hreflang=en href=https://jrziviani.github.io/posts/amps-template-engine/>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
 <style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
 </noscript><meta property="og:title" content="Amps Template Engine">
 <meta property="og:description" content="Amps template engine for C++17.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://ziviani.net/posts/amps-template-engine/"><meta property="article:section" content="posts">
+<meta property="og:url" content="https://jrziviani.github.io/posts/amps-template-engine/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2019-01-08T17:20:19-08:00">
 <meta property="article:modified_time" content="2019-01-08T17:20:19-08:00">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Amps Template Engine">
 <meta name=twitter:description content="Amps template engine for C++17.">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://ziviani.net/posts/"},{"@type":"ListItem","position":2,"name":"Amps Template Engine","item":"https://ziviani.net/posts/amps-template-engine/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Amps Template Engine","name":"Amps Template Engine","description":"Amps template engine for C++17.","keywords":["C++"],"articleBody":"Amps is my new toy project. I’ve been writing it after reading the Crafting Interpreters, an excellent book by the way. Amps is a simple text template engine (under development, of course) developed in C++17.\nAs a side note, I’m impressed with modern C++ expressiveness. Despite of critics that I’ve read recently, it’s becoming a lot easier than old C++. Features like optional and variant give us the power to compose different types in order to create type safe complex structures, almost like dynamically type languages do.\nFor instance:\namps::user_map ht { {\"name\", \"My name\"}, {\"cities\", vector{ \"Sao Paulo\", \"Paris\", \"NYC\", \"London\", \"Lisbon\"}}, {\"songs\", unordered_map{ {\"guns and roses\", \"patience\"}, {\"aerosmith\", \"crazy\"}, {\"led zeppelin\", \"immigrant song\"}, {\"pink floyd\", \"high hopes\"}}}, }; Isn’t it somewhat similar to Python?\nht = { \"name\": \"My name\", \"cities\": [\"Sao Paulo\", \"Paris\"], \"songs\": {\"aerosmith\": \"crazy\"}} To make Amps more useful I’ve integrated it to a module for Apache HTTP server. It basically offers dynamic web pages without a real programming language (like PHP, Ruby, Python) behind it. This could be good for small projects, however I’ve not measure the performance yet.\nIn order to build Apache’s HTTPd I referred to my old post. Then, I wrote a wrapper to connect my C++17 project with an plain C Apache module and nothing else.\n$ cat amps_wrapper.cpp  1 #ifdef __cplusplus 2 3 #include \"engine.h\"4 5 #include \"httpd.h\"6 7 #include 8 #include 9 #include 10 #include 11 12 using std::vector; 13 using std::string; 14 using std::unordered_map; 15 16 unordered_mapstring, string query_to_map(const char *query) 17 { 18 unordered_mapstring, string result; 19 if (query == nullptr) { 20 return result; 21 } 22 23 char *tmp = strdup(query); 24 for (char *tok = strtok(tmp, \"\u0026\"); tok != NULL; tok = strtok(NULL, \"\u0026\")) { 25 char *value = strchr(tok, '='); 26 if (value == nullptr) { 27 continue; 28 } 29 30 result[string(tok, value - tok)] = string(\u0026value[1]); 31 } 32 33 free(tmp); 34 return result; 35 } 36 37 static void get_custom_template(request_rec *r, char **result) 38 { 39 if (r-args == 0) { 40 return; 41 } 42 43 amps::error err; 44 amps::engine engine(err); 45 engine.set_template_directory(\"/tmp\"); 46 47 amps::user_map ht {{\"user_data\", query_to_map(r-args)}}; 48 49 // html template is the default, xml returned when content=xml 50 auto content = user.find(\"content\"); 51 if (content == user.end() || content-second == \"html\") { 52 engine.prepare_template(\"template.tpl\"); 53 r-content_type = \"text/html\"; 54 } 55 else { 56 engine.prepare_template(\"template_xml.tpl\"); 57 r-content_type = \"text/xml\"; 58 } 59 string rendered = engine.render(ht); 60 61 *result = (char*)malloc(sizeof(char) * rendered.size() + 1); 62 strcpy(*result, rendered.c_str()); 63 (*result)[rendered.size()] = '\\0'; 64 } 65 #endif 66 67 extern \"C\" { 68 #include \"amps_wrapper.h\"69 70 void get_template(request_rec *r, char **result) 71 { 72 get_custom_template(r, result); 73 } 74 } The HTTPd module simply calls the get_template function.\n1 static int get_handler(request_rec *r) 2 { 3 char *result = NULL; 4 5 if (r-header_only || r-args == 0) { 6 return OK; 7 } 8 9 get_template(r, \u0026result); 10 11 /* something bad happened */ 12 if (result == NULL) { 13 return DECLINED; 14 } 15 16 ap_rputs(result, r); 17 18 free(result); 19 20 return OK; 21 } I compile it all with:\n$ g++ -std=c++17 -I/home/ziviani/amps/include \\ -I/home/ziviani/httpd/www/include \\ -fPIC amps_wrapper.cpp -o wrapper.o -c -g3 $ ../bin/apxs -I/home/ziviani/amps/include -c -i mod_cool_framework.c wrapper.o libamps-static.a  And I finally get this (html template):\n1 html 2 head 3 meta charset=\"utf-8\" 4 head 5 6 body 7 h2Welcome {= user_data[\"name\"] =}h2 8 ul 9 liALL DATA:ul 10 {% for key, value in user_data %} 11 {% if value eq \"null\" %} 12 liops, something wrong hereli 13 {% else %} 14 li{= value =}li 15 {% endif %} 16 {% endfor %} 17 ul 18 body 19 html and this (xml template):\n1  2 {= user_data[\"name\"] =} 3  Amps is at its initial stage but it’s been very fun to develop. I intend to continue writing about it in the near future.\nThank you for reading it.\n","wordCount":"662","inLanguage":"en","datePublished":"2019-01-08T17:20:19-08:00","dateModified":"2019-01-08T17:20:19-08:00","author":{"@type":"Person","name":"Jose R. Ziviani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ziviani.net/posts/amps-template-engine/"},"publisher":{"@type":"Organization","name":"ziviani.net","logo":{"@type":"ImageObject","url":"https://ziviani.net/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://jrziviani.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Amps Template Engine","item":"https://jrziviani.github.io/posts/amps-template-engine/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Amps Template Engine","name":"Amps Template Engine","description":"Amps template engine for C++17.","keywords":["C++"],"articleBody":"Amps is my new toy project. I’ve been writing it after reading the Crafting Interpreters, an excellent book by the way. Amps is a simple text template engine (under development, of course) developed in C++17.\nAs a side note, I’m impressed with modern C++ expressiveness. Despite of critics that I’ve read recently, it’s becoming a lot easier than old C++. Features like optional and variant give us the power to compose different types in order to create type safe complex structures, almost like dynamically type languages do.\nFor instance:\namps::user_map ht { {\"name\", \"My name\"}, {\"cities\", vector{ \"Sao Paulo\", \"Paris\", \"NYC\", \"London\", \"Lisbon\"}}, {\"songs\", unordered_map{ {\"guns and roses\", \"patience\"}, {\"aerosmith\", \"crazy\"}, {\"led zeppelin\", \"immigrant song\"}, {\"pink floyd\", \"high hopes\"}}}, }; Isn’t it somewhat similar to Python?\nht = { \"name\": \"My name\", \"cities\": [\"Sao Paulo\", \"Paris\"], \"songs\": {\"aerosmith\": \"crazy\"}} To make Amps more useful I’ve integrated it to a module for Apache HTTP server. It basically offers dynamic web pages without a real programming language (like PHP, Ruby, Python) behind it. This could be good for small projects, however I’ve not measure the performance yet.\nIn order to build Apache’s HTTPd I referred to my old post. Then, I wrote a wrapper to connect my C++17 project with an plain C Apache module and nothing else.\n$ cat amps_wrapper.cpp  1 #ifdef __cplusplus 2 3 #include \"engine.h\"4 5 #include \"httpd.h\"6 7 #include 8 #include 9 #include 10 #include 11 12 using std::vector; 13 using std::string; 14 using std::unordered_map; 15 16 unordered_mapstring, string query_to_map(const char *query) 17 { 18 unordered_mapstring, string result; 19 if (query == nullptr) { 20 return result; 21 } 22 23 char *tmp = strdup(query); 24 for (char *tok = strtok(tmp, \"\u0026\"); tok != NULL; tok = strtok(NULL, \"\u0026\")) { 25 char *value = strchr(tok, '='); 26 if (value == nullptr) { 27 continue; 28 } 29 30 result[string(tok, value - tok)] = string(\u0026value[1]); 31 } 32 33 free(tmp); 34 return result; 35 } 36 37 static void get_custom_template(request_rec *r, char **result) 38 { 39 if (r-args == 0) { 40 return; 41 } 42 43 amps::error err; 44 amps::engine engine(err); 45 engine.set_template_directory(\"/tmp\"); 46 47 amps::user_map ht {{\"user_data\", query_to_map(r-args)}}; 48 49 // html template is the default, xml returned when content=xml 50 auto content = user.find(\"content\"); 51 if (content == user.end() || content-second == \"html\") { 52 engine.prepare_template(\"template.tpl\"); 53 r-content_type = \"text/html\"; 54 } 55 else { 56 engine.prepare_template(\"template_xml.tpl\"); 57 r-content_type = \"text/xml\"; 58 } 59 string rendered = engine.render(ht); 60 61 *result = (char*)malloc(sizeof(char) * rendered.size() + 1); 62 strcpy(*result, rendered.c_str()); 63 (*result)[rendered.size()] = '\\0'; 64 } 65 #endif 66 67 extern \"C\" { 68 #include \"amps_wrapper.h\"69 70 void get_template(request_rec *r, char **result) 71 { 72 get_custom_template(r, result); 73 } 74 } The HTTPd module simply calls the get_template function.\n1 static int get_handler(request_rec *r) 2 { 3 char *result = NULL; 4 5 if (r-header_only || r-args == 0) { 6 return OK; 7 } 8 9 get_template(r, \u0026result); 10 11 /* something bad happened */ 12 if (result == NULL) { 13 return DECLINED; 14 } 15 16 ap_rputs(result, r); 17 18 free(result); 19 20 return OK; 21 } I compile it all with:\n$ g++ -std=c++17 -I/home/ziviani/amps/include \\ -I/home/ziviani/httpd/www/include \\ -fPIC amps_wrapper.cpp -o wrapper.o -c -g3 $ ../bin/apxs -I/home/ziviani/amps/include -c -i mod_cool_framework.c wrapper.o libamps-static.a  And I finally get this (html template):\n1 html 2 head 3 meta charset=\"utf-8\" 4 head 5 6 body 7 h2Welcome {= user_data[\"name\"] =}h2 8 ul 9 liALL DATA:ul 10 {% for key, value in user_data %} 11 {% if value eq \"null\" %} 12 liops, something wrong hereli 13 {% else %} 14 li{= value =}li 15 {% endif %} 16 {% endfor %} 17 ul 18 body 19 html and this (xml template):\n1  2 {= user_data[\"name\"] =} 3  Amps is at its initial stage but it’s been very fun to develop. I intend to continue writing about it in the near future.\nThank you for reading it.\n","wordCount":"662","inLanguage":"en","datePublished":"2019-01-08T17:20:19-08:00","dateModified":"2019-01-08T17:20:19-08:00","author":{"@type":"Person","name":"Jose R. Ziviani"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://jrziviani.github.io/posts/amps-template-engine/"},"publisher":{"@type":"Organization","name":"ziviani.net","logo":{"@type":"ImageObject","url":"https://jrziviani.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
 <header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://ziviani.net/ accesskey=h title="ziviani.net (Alt + H)">ziviani.net</a>
+<a href=https://jrziviani.github.io accesskey=h title="ziviani.net (Alt + H)">ziviani.net</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 <ul class=lang-switch><li>|</li>
 <li>
-<a href=https://ziviani.net/pt/ title=Portuguese aria-label=:pt:>Pt</a>
+<a href=https://jrziviani.github.io/pt/ title=Portuguese aria-label=:pt:>Pt</a>
 </li>
 </ul>
 </span>
 </div>
 <ul id=menu>
 <li>
-<a href=https://ziviani.net/archives title=Archive>
+<a href=https://jrziviani.github.io/archives title=Archive>
 <span>Archive</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/search title="Search (Alt + /)" accesskey=/>
+<a href=https://jrziviani.github.io/search title="Search (Alt + /)" accesskey=/>
 <span>Search</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/tags title=Tags>
+<a href=https://jrziviani.github.io/tags title=Tags>
 <span>Tags</span>
 </a>
 </li>
 <li>
-<a href=https://ziviani.net/about title=About>
+<a href=https://jrziviani.github.io/about title=About>
 <span>About</span>
 </a>
 </li>
@@ -76,7 +76,7 @@
 <main class=main>
 <article class=post-single>
 <header class=post-header>
-<div class=breadcrumbs><a href=https://ziviani.net/>Home</a>&nbsp;»&nbsp;<a href=https://ziviani.net/posts/>Posts</a></div>
+<div class=breadcrumbs><a href=https://jrziviani.github.io>Home</a>&nbsp;»&nbsp;<a href=https://jrziviani.github.io/posts/>Posts</a></div>
 <h1 class=post-title>
 Amps Template Engine
 </h1>
@@ -244,10 +244,10 @@ Amps Template Engine
 </div>
 <footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://ziviani.net/tags/c++/>C++</a></li>
+<li><a href=https://jrziviani.github.io/tags/c++/>C++</a></li>
 </ul>
 <nav class=paginav>
-<a class=next href=https://ziviani.net/posts/linux-crash-tool-part-i/>
+<a class=next href=https://jrziviani.github.io/posts/linux-crash-tool-part-i/>
 <span class=title>Next Page »</span>
 <br>
 <span>Linux Crash Tool Part I</span>
@@ -257,7 +257,7 @@ Amps Template Engine
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2022 <a href=https://ziviani.net/>ziviani.net</a></span>
+<span>&copy; 2022 <a href=https://jrziviani.github.io>ziviani.net</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
