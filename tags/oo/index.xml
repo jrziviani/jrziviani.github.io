@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OO on ziviani.net</title>
+    <link>https://ziviani.net/tags/oo/</link>
+    <description>Recent content in OO on ziviani.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Dec 2017 17:09:28 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/oo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elegant Visitors</title>
+      <link>https://ziviani.net/posts/elegant-visitors/</link>
+      <pubDate>Sun, 03 Dec 2017 17:09:28 -0800</pubDate>
+      
+      <guid>https://ziviani.net/posts/elegant-visitors/</guid>
+      <description>Exploring the powerful visitor design pattern.</description>
+    </item>
+    
+  </channel>
+</rss>

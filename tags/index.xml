@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on ziviani.net</title>
+    <link>https://ziviani.net/tags/</link>
+    <description>Recent content in Tags on ziviani.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Jan 2019 17:20:19 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://ziviani.net/tags/c&#43;&#43;/</link>
+      <pubDate>Tue, 08 Jan 2019 17:20:19 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hacking</title>
+      <link>https://ziviani.net/tags/hacking/</link>
+      <pubDate>Tue, 04 Sep 2018 17:20:00 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/hacking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://ziviani.net/tags/linux/</link>
+      <pubDate>Tue, 04 Sep 2018 17:20:00 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tooling</title>
+      <link>https://ziviani.net/tags/tooling/</link>
+      <pubDate>Tue, 04 Sep 2018 17:20:00 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/tooling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bookmark</title>
+      <link>https://ziviani.net/tags/bookmark/</link>
+      <pubDate>Wed, 20 Dec 2017 17:19:07 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/bookmark/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>conference</title>
+      <link>https://ziviani.net/tags/conference/</link>
+      <pubDate>Wed, 20 Dec 2017 17:19:07 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/conference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>design patterns</title>
+      <link>https://ziviani.net/tags/design-patterns/</link>
+      <pubDate>Sun, 03 Dec 2017 17:09:28 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/design-patterns/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OO</title>
+      <link>https://ziviani.net/tags/oo/</link>
+      <pubDate>Sun, 03 Dec 2017 17:09:28 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/oo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>assembly</title>
+      <link>https://ziviani.net/tags/assembly/</link>
+      <pubDate>Sat, 18 Nov 2017 09:04:30 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/assembly/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>https://ziviani.net/tags/c/</link>
+      <pubDate>Sat, 18 Nov 2017 09:04:30 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fpga</title>
+      <link>https://ziviani.net/tags/fpga/</link>
+      <pubDate>Wed, 01 Nov 2017 09:04:55 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/fpga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kvm</title>
+      <link>https://ziviani.net/tags/kvm/</link>
+      <pubDate>Tue, 05 Sep 2017 06:19:26 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/kvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ppc</title>
+      <link>https://ziviani.net/tags/ppc/</link>
+      <pubDate>Tue, 05 Sep 2017 06:19:26 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/ppc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://ziviani.net/tags/blog/</link>
+      <pubDate>Tue, 10 Jan 2017 06:19:10 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web dev</title>
+      <link>https://ziviani.net/tags/web-dev/</link>
+      <pubDate>Tue, 10 Jan 2017 06:19:10 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/web-dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Structures</title>
+      <link>https://ziviani.net/tags/data-structures/</link>
+      <pubDate>Wed, 10 Aug 2016 06:18:59 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://ziviani.net/tags/python/</link>
+      <pubDate>Wed, 24 Dec 2014 06:18:30 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apache</title>
+      <link>https://ziviani.net/tags/apache/</link>
+      <pubDate>Mon, 10 Jan 2011 13:41:20 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://ziviani.net/tags/web/</link>
+      <pubDate>Mon, 10 Jan 2011 13:41:20 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>personal</title>
+      <link>https://ziviani.net/tags/personal/</link>
+      <pubDate>Sat, 01 Jan 2011 13:41:20 -0800</pubDate>
+      
+      <guid>https://ziviani.net/tags/personal/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

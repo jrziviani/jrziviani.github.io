@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>web on ziviani.net</title>
+    <link>https://ziviani.net/tags/web/</link>
+    <description>Recent content in web on ziviani.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Jan 2011 13:41:20 -0800</lastBuildDate><atom:link href="https://ziviani.net/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Create an Apache Module</title>
+      <link>https://ziviani.net/posts/how-to-create-an-apache-module/</link>
+      <pubDate>Mon, 10 Jan 2011 13:41:20 -0800</pubDate>
+      
+      <guid>https://ziviani.net/posts/how-to-create-an-apache-module/</guid>
+      <description>A simple how-to guiding through the process of creating an Apache HTTPd module in C language.</description>
+    </item>
+    
+  </channel>
+</rss>
