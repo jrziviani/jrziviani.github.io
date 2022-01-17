@@ -1,7 +1,7 @@
-baseURL = 'https://jrziviani.github.io'
-languageCode = 'en-us'
-title = 'ziviani.net'
-theme = 'PaperMod'
+baseURL = "https://jrziviani.github.io"
+languageCode = "en-us"
+title = "ziviani.net"
+theme = "PaperMod"
 enableRobotsTXT = true
 
 [minify]
