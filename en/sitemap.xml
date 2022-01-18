@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jrziviani.github.io/posts/amps-template-engine/</loc>
+    <loc>https://jrziviani.github.io/2019/amps-template-engine/</loc>
     <lastmod>2019-01-08T17:20:19-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/c&#43;&#43;/</loc>
@@ -43,16 +43,16 @@
     <loc>https://jrziviani.github.io/tags/linux/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/linux-crash-tool-part-i/</loc>
+    <loc>https://jrziviani.github.io/2018/linux-crash-tool-part-i/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/tooling/</loc>
     <lastmod>2018-09-04T17:20:00-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/touching-around/</loc>
+    <loc>https://jrziviani.github.io/2018/touching-around/</loc>
     <lastmod>2018-08-20T17:19:41-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/spying-around/</loc>
+    <loc>https://jrziviani.github.io/2018/spying-around/</loc>
     <lastmod>2018-08-12T17:19:27-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/bookmark/</loc>
@@ -61,13 +61,13 @@
     <loc>https://jrziviani.github.io/tags/conference/</loc>
     <lastmod>2017-12-20T17:19:07-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/cppcon-mustsee/</loc>
+    <loc>https://jrziviani.github.io/2017/cppcon-2017/</loc>
     <lastmod>2017-12-20T17:19:07-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/design-patterns/</loc>
     <lastmod>2017-12-03T17:09:28-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/elegant-visitors/</loc>
+    <loc>https://jrziviani.github.io/2017/elegant-visitors/</loc>
     <lastmod>2017-12-03T17:09:28-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/oo/</loc>
@@ -79,16 +79,16 @@
     <loc>https://jrziviani.github.io/tags/c/</loc>
     <lastmod>2017-11-18T09:04:30-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/functions-in-assembly-ii/</loc>
+    <loc>https://jrziviani.github.io/2017/functions-in-assembly-part-ii/</loc>
     <lastmod>2017-11-18T09:04:30-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/fpga/</loc>
     <lastmod>2017-11-01T09:04:55-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/my-first-fpga-board/</loc>
+    <loc>https://jrziviani.github.io/2017/fpga-cyclone-iv-altera/</loc>
     <lastmod>2017-11-01T09:04:55-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/functions-in-assembly/</loc>
+    <loc>https://jrziviani.github.io/2017/functions-in-assembly-part-i/</loc>
     <lastmod>2017-10-25T09:04:06-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/kvm/</loc>
@@ -97,25 +97,25 @@
     <loc>https://jrziviani.github.io/tags/ppc/</loc>
     <lastmod>2017-09-05T06:19:26-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/kvm-hello-world-ppc64/</loc>
+    <loc>https://jrziviani.github.io/2017/using-the-kvm-api-powerpc-64-version/</loc>
     <lastmod>2017-09-05T06:19:26-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/blog/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/reboot/</loc>
+    <loc>https://jrziviani.github.io/2017/reboot/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/web-dev/</loc>
     <lastmod>2017-01-10T06:19:10-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/binary-index-tree/</loc>
+    <loc>https://jrziviani.github.io/2016/binary-index-tree/</loc>
     <lastmod>2016-08-10T06:18:59-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/data-structures/</loc>
     <lastmod>2016-08-10T06:18:59-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/class-inheritance-in-c/</loc>
+    <loc>https://jrziviani.github.io/2014/class-inheritance-in-c/</loc>
     <lastmod>2014-12-24T06:18:30-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/python/</loc>
@@ -124,7 +124,7 @@
     <loc>https://jrziviani.github.io/tags/apache/</loc>
     <lastmod>2011-01-10T13:41:20-08:00</lastmod>
   </url><url>
-    <loc>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</loc>
+    <loc>https://jrziviani.github.io/2011/how-to-create-an-apache-module/</loc>
     <lastmod>2011-01-10T13:41:20-08:00</lastmod>
   </url><url>
     <loc>https://jrziviani.github.io/tags/web/</loc>

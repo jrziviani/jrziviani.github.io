@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 10 Jan 2011 13:41:20 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Create an Apache Module</title>
-      <link>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</link>
+      <link>https://jrziviani.github.io/2011/how-to-create-an-apache-module/</link>
       <pubDate>Mon, 10 Jan 2011 13:41:20 -0800</pubDate>
       
-      <guid>https://jrziviani.github.io/posts/how-to-create-an-apache-module/</guid>
+      <guid>https://jrziviani.github.io/2011/how-to-create-an-apache-module/</guid>
       <description>A simple how-to guiding through the process of creating an Apache HTTPd module in C language.</description>
     </item>
     

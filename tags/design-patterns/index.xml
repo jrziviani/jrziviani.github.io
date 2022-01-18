@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 03 Dec 2017 17:09:28 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Elegant Visitors</title>
-      <link>https://jrziviani.github.io/posts/elegant-visitors/</link>
+      <link>https://jrziviani.github.io/2017/elegant-visitors/</link>
       <pubDate>Sun, 03 Dec 2017 17:09:28 -0800</pubDate>
       
-      <guid>https://jrziviani.github.io/posts/elegant-visitors/</guid>
+      <guid>https://jrziviani.github.io/2017/elegant-visitors/</guid>
       <description>Exploring the powerful visitor design pattern.</description>
     </item>
     

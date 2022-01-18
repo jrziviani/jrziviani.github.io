@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 10 Aug 2016 06:18:59 -0800</lastBuildDate><atom:link href="https://jrziviani.github.io/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Binary Index Tree</title>
-      <link>https://jrziviani.github.io/posts/binary-index-tree/</link>
+      <link>https://jrziviani.github.io/2016/binary-index-tree/</link>
       <pubDate>Wed, 10 Aug 2016 06:18:59 -0800</pubDate>
       
-      <guid>https://jrziviani.github.io/posts/binary-index-tree/</guid>
+      <guid>https://jrziviani.github.io/2016/binary-index-tree/</guid>
       <description>Understanding the binary index tree (BIT) data structure.</description>
     </item>
     
