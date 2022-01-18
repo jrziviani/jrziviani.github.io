@@ -4,6 +4,9 @@ title = "ziviani.net"
 theme = "PaperMod"
 enableRobotsTXT = true
 
+[permalinks]
+  posts = "/:year/:title"
+
 [minify]
   disableXML = true
   minifyOutput = true
