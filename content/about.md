@@ -17,7 +17,7 @@ summary: "About me."
 Hello!
 ------
 
-My name is Jose Ricardo Ziviani, I'm a open source programmer from Brazil.
+Welcome to my page.
 
 You can reach me at jose**AT**ziviani**DOT**net
 
