@@ -1,0 +1,67 @@
+# color38  - SteelBlue3
+# color64  - Chartreuse4
+# color95  - LightPink4
+# color130 - DarkOrange3
+# color136 - DarkGoldenrod
+# color138 - RosyBrown
+# color166 - DarkOrange3
+# color167 - IndianRed
+# color196 - Red1
+# color215 - SandyBrown
+# color230 - Cornsilk1
+# color234 - Grey11
+# color242 - Grey42
+# color245 - Grey54
+# color252 - Grey82
+
+# See http://www.mutt.org/doc/manual/#color
+
+color attachment  color166 default  # DarkOrange3
+color bold        color167 default  # IndianRed
+color indicator   color252 color242 # Grey82 Grey252
+color hdrdefault  color95  default  # LightPink4
+color markers     color166 default  # DarkOrange3
+color normal      color234 default  # Grey11
+color quoted      color245 default  # Grey54
+color quoted1     color136 default  # DarkGoldenrod
+color quoted2     color245 default  # Grey54
+color quoted3     color136 default  # DarkGoldenrod
+color quoted4     color245 default  # Grey54
+color quoted5     color136 default  # DarkGoldenrod
+color search      default color230  # Cornsilk1
+color signature   color136 default  # DarkGoldenrod
+color status      color130 color252 # DarkOrange3 Grey82
+color tilde       color245 default  # Grey54
+color tree        color166 default  # DarkOrange3
+
+color sidebar_divider    color130 default # DarkOrange3
+color sidebar_new        color130 default # DarkOrange3
+
+color index color38  default ~P # SteelBlue3    - Messages From Me
+color index color64  default ~Q # Chartreuse4   - Replied Messages
+color index color166 default ~U # DarkOrange3   - Old messages
+color index color138 default ~N # RosyBrown     - New Messages
+color index default color95  ~T # LightPink4    - Flagged Messages
+color index default color167 ~D # IndianRed     - Deleted messages
+
+color header color166 default "^(To:|From:)"        # DarkOrange3
+color header color136 default "^Subject:"           # DarkGoldenrod
+color header color242 default "^X-Spam-Status:"     # Grey42
+color header color242 default "^Received:"          # Grey42
+
+color body color38 default "[a-z]{3,256}://[-a-zA-Z0-9@:%._\\+~#=/?&,]+"   # SteelBlue3
+color body color215 default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"  # SandyBrown
+color body color215 default "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"             # SandyBrown
+color body default color230 "[;:]-*[)>(<lt;|]"                             # Cornsilk1
+color body color229 default "\\*[- A-Za-z]+\\*"
+
+color body color214 default "^-.*PGP.*-*"
+color body color142 default "^gpg: Good signature from"
+color body color167 default "^gpg: Can't.*$"
+color body color214 default "^gpg: WARNING:.*$"
+color body color167 default "^gpg: BAD signature from"
+color body color167 default "^gpg: Note: This key has expired!"
+color body color214 default "^gpg: There is no indication that the signature belongs to the owner."
+color body color214 default "^gpg: can't handle these multiple signatures"
+color body color214 default "^gpg: signature verification suppressed"
+color body color214 default "^gpg: invalid node with packet of type"

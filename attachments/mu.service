@@ -1,0 +1,6 @@
+[Unit]
+Description=Mutt Mail Indexer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/mu index --quiet --maildir ~/.mutt/boxes/

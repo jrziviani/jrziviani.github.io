@@ -1,0 +1,9 @@
+[Unit]
+Description=Mutt Mail Indexer Timer
+
+[Timer]
+OnCalendar=*:0/30
+Unit=mu.service
+
+[Install]
+WantedBy=default.target
