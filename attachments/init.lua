@@ -30,9 +30,11 @@ local diffcb = require('diffview.config').diffview_callback
 require('diffview').setup {
   diff_binaries = false,    -- Show diffs for binaries
   file_panel = {
-    width = 35,
-    use_icons = true        -- Requires nvim-web-devicons
+    with_config = {
+      width = 35,
+    },
   },
+  use_icons = true,        -- Requires nvim-web-devicons
   key_bindings = {
     disable_defaults = false,                   -- Disable the default key bindings
     -- The `view` bindings are active in the diff buffers, only when the current
@@ -71,9 +73,18 @@ require('nvim-treesitter.configs').setup {
     highlight = {enable = true}
 }
 
+-- set the colorsheme/background
+require('catppuccin').setup({
+    flavour = 'frappe',
+    transparent_background = false,
+    no_italic = true,
+})
+
+vim.cmd.colorscheme 'catppuccin'
+
 require('lualine').setup {
     options = {
-        theme = 'github',
+        theme = 'auto',
         section_separators = {'', ''},
         component_separators = {'', ''},
         disabled_filetypes = {},
@@ -320,10 +331,6 @@ set.virtualedit = "block"
 
 -- GUI ------------------------------------------------------------------------
 -- ----------------------------------------------------------------------------
--- set the colorsheme/background
-require('github-theme').setup({
-    themeStyle = "light"
-})
 
 -- use 24-bit color palette
 set.termguicolors = true
@@ -502,5 +509,6 @@ vim.api.nvim_command('let bufferline.maximum_padding = 1')
 
 vim.api.nvim_exec([[
   autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit' | exe "normal! g`\"" | endif
+  autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
 ]], false)
 
